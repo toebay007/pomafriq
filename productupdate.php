@@ -1,0 +1,22 @@
+<?php
+    require("productclass.php");
+
+    $ids = $_GET['id'];
+    $obj1 = new products;
+
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
+      //$ids = test_input($_POST['products_id']); 
+      $productName = test_input($_POST['productName']);
+      $product_category = test_input($_POST['product_category']);
+      $productShort = test_input($_POST['productShort']);
+      $productPrice = test_input($_POST['productPrice']);
+      $productLong = test_input($_POST['productLong']);
+        //echo($ids);
+      $obj1->updateProduct($ids,$productName,$product_category,$productShort,$productPrice,$productLong,$_FILES);
+
+      ?>
